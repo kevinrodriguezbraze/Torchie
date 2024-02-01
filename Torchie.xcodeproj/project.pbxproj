@@ -11,6 +11,9 @@
 		C329EDD52B694468006E3CCD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C329EDD42B694468006E3CCD /* ContentView.swift */; };
 		C329EDD72B69446A006E3CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C329EDD62B69446A006E3CCD /* Assets.xcassets */; };
 		C329EDDA2B69446A006E3CCD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C329EDD92B69446A006E3CCD /* Preview Assets.xcassets */; };
+		C329EDE22B694548006E3CCD /* BrazeKit in Frameworks */ = {isa = PBXBuildFile; productRef = C329EDE12B694548006E3CCD /* BrazeKit */; };
+		C329EDE42B694548006E3CCD /* BrazeKitCompat in Frameworks */ = {isa = PBXBuildFile; productRef = C329EDE32B694548006E3CCD /* BrazeKitCompat */; };
+		C329EDE62B694548006E3CCD /* BrazeLocation in Frameworks */ = {isa = PBXBuildFile; productRef = C329EDE52B694548006E3CCD /* BrazeLocation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,8 @@
 		C329EDD42B694468006E3CCD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C329EDD62B69446A006E3CCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C329EDD92B69446A006E3CCD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C329EDE72B694916006E3CCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C329EDE82B69F3AF006E3CCD /* Torchie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Torchie.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +31,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C329EDE42B694548006E3CCD /* BrazeKitCompat in Frameworks */,
+				C329EDE22B694548006E3CCD /* BrazeKit in Frameworks */,
+				C329EDE62B694548006E3CCD /* BrazeLocation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +59,8 @@
 		C329EDD12B694468006E3CCD /* Torchie */ = {
 			isa = PBXGroup;
 			children = (
+				C329EDE82B69F3AF006E3CCD /* Torchie.entitlements */,
+				C329EDE72B694916006E3CCD /* Info.plist */,
 				C329EDD22B694468006E3CCD /* TorchieApp.swift */,
 				C329EDD42B694468006E3CCD /* ContentView.swift */,
 				C329EDD62B69446A006E3CCD /* Assets.xcassets */,
@@ -83,6 +93,11 @@
 			dependencies = (
 			);
 			name = Torchie;
+			packageProductDependencies = (
+				C329EDE12B694548006E3CCD /* BrazeKit */,
+				C329EDE32B694548006E3CCD /* BrazeKitCompat */,
+				C329EDE52B694548006E3CCD /* BrazeLocation */,
+			);
 			productName = Torchie;
 			productReference = C329EDCF2B694468006E3CCD /* Torchie.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +126,9 @@
 				Base,
 			);
 			mainGroup = C329EDC62B694468006E3CCD;
+			packageReferences = (
+				C329EDE02B694548006E3CCD /* XCRemoteSwiftPackageReference "braze-swift-sdk" */,
+			);
 			productRefGroup = C329EDD02B694468006E3CCD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -241,6 +259,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -269,15 +288,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Torchie/Torchie.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Torchie/Preview Content\"";
-				DEVELOPMENT_TEAM = LY6W2TN324;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VG67VUGB8H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Torchie/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -285,8 +308,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kvn.Torchie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kvn.TorchieApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Kevin Rodriguez";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -298,15 +323,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Torchie/Torchie.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Torchie/Preview Content\"";
-				DEVELOPMENT_TEAM = LY6W2TN324;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VG67VUGB8H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Torchie/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -314,8 +343,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kvn.Torchie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kvn.TorchieApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Kevin Rodriguez";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -344,6 +375,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C329EDE02B694548006E3CCD /* XCRemoteSwiftPackageReference "braze-swift-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/braze-inc/braze-swift-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C329EDE12B694548006E3CCD /* BrazeKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C329EDE02B694548006E3CCD /* XCRemoteSwiftPackageReference "braze-swift-sdk" */;
+			productName = BrazeKit;
+		};
+		C329EDE32B694548006E3CCD /* BrazeKitCompat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C329EDE02B694548006E3CCD /* XCRemoteSwiftPackageReference "braze-swift-sdk" */;
+			productName = BrazeKitCompat;
+		};
+		C329EDE52B694548006E3CCD /* BrazeLocation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C329EDE02B694548006E3CCD /* XCRemoteSwiftPackageReference "braze-swift-sdk" */;
+			productName = BrazeLocation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C329EDC72B694468006E3CCD /* Project object */;
 }
