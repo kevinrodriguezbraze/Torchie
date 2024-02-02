@@ -7,12 +7,13 @@
 
 import BrazeKit
 import SwiftUI
+import UserNotifications
 
 //In summary, this code sets up and configures the Braze SDK in the AppDelegate class, ensuring that the Braze instance is stored for later use throughout the app's lifecycle.
 
 
 //Defines a class named AppDelegate that inherits from NSObject and conforms to the UIApplicationDelegate protocol. The AppDelegate is designated as the delegate to manage the application's lifecycle events - handling tasks associated with launching, backgrounding, foregrounding, and termination.
-class AppDelegate: NSObject, UIApplicationDelegate {
+class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     //Declares a static property named braze of type Braze? (optional Braze instance). This property is used to store a reference to the Braze instance.
     static var braze: Braze? = nil
@@ -32,9 +33,32 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
         //Stores the Braze instance in the static property AppDelegate.braze for future reference.
         AppDelegate.braze = braze
+        
+        
+        //Register your application to support push notifications.
+        application.registerForRemoteNotifications()
+        
+        let center = UNUserNotificationCenter.current()
+        
+        //support for notifications with action buttons.
+         center.setNotificationCategories(Braze.Notifications.categories)
+        
+        //This assigns the current object (self) as the delegate for the UNUserNotificationCenter. By doing so, this object will receive notifications about events related to the delivery and handling of notifications. The delegate must conform to the UNUserNotificationCenterDelegate protocol, which includes methods for handling the arrival of notifications and actions selected by the user.
+         center.delegate = self
+        
+        //requests authorization to deliver notifications in the specified ways:
+         center.requestAuthorization(options: [.badge, .sound, .alert]) { granted, error in
+           print("Notification authorization, granted: \(granted), error: \(String(describing: error))")
+         }
        
         //Returns true to indicate that the app has finished launching successfully.
         return true
+    }
+    
+    
+    //pass the device token to Braze.
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        AppDelegate.braze?.notifications.register(deviceToken: deviceToken)
     }
 }
 
