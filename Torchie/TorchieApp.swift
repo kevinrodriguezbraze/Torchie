@@ -60,6 +60,55 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         AppDelegate.braze?.notifications.register(deviceToken: deviceToken)
     }
+    
+    
+    
+    func application(
+      _ application: UIApplication,
+      didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
+    ) {
+        
+        //The handleBackgroundNotification method of the Braze SDK is designed to process notifications relevant to Braze functionalities, such as analytics, user engagement, etc.
+      if let braze = AppDelegate.braze, braze.notifications.handleBackgroundNotification(
+        userInfo: userInfo,
+        fetchCompletionHandler: completionHandler
+      ) {
+        return
+      }
+      completionHandler(.noData)
+    }
+    
+    
+    // The function's purpose is to process the user's response to a notification, allowing the app to perform appropriate actions based on that interaction.
+    func userNotificationCenter(
+      _ center: UNUserNotificationCenter,
+      didReceive response: UNNotificationResponse,
+      withCompletionHandler completionHandler: @escaping () -> Void
+    ) {
+      if let braze = AppDelegate.braze, braze.notifications.handleUserNotification(
+        response: response,
+        withCompletionHandler: completionHandler
+      ) {
+        return
+      }
+      completionHandler()
+    }
+    
+    
+    
+    //This enables support for receiving user-visible remote notifications while the app is running in the foreground.
+    func userNotificationCenter(
+      _ center: UNUserNotificationCenter,
+      willPresent notification: UNNotification,
+      withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
+    ) {
+      if #available(iOS 14.0, *) {
+        completionHandler([.list, .banner])
+      } else {
+        completionHandler(.alert)
+      }
+    }
 }
 
 //The @main attribute is an entry point for the application, indicating that this structure is the application itself.
