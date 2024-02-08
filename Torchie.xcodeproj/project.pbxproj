@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3227A3F2B733974007355EE /* BrazeUI in Frameworks */ = {isa = PBXBuildFile; productRef = C3227A3E2B733974007355EE /* BrazeUI */; };
 		C329EDD32B694468006E3CCD /* TorchieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C329EDD22B694468006E3CCD /* TorchieApp.swift */; };
 		C329EDD52B694468006E3CCD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C329EDD42B694468006E3CCD /* ContentView.swift */; };
 		C329EDD72B69446A006E3CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C329EDD62B69446A006E3CCD /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C329EDE42B694548006E3CCD /* BrazeKitCompat in Frameworks */,
+				C3227A3F2B733974007355EE /* BrazeUI in Frameworks */,
 				C329EDE22B694548006E3CCD /* BrazeKit in Frameworks */,
 				C329EDE62B694548006E3CCD /* BrazeLocation in Frameworks */,
 			);
@@ -40,11 +42,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C3227A3D2B733974007355EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C329EDC62B694468006E3CCD = {
 			isa = PBXGroup;
 			children = (
 				C329EDD12B694468006E3CCD /* Torchie */,
 				C329EDD02B694468006E3CCD /* Products */,
+				C3227A3D2B733974007355EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +107,7 @@
 				C329EDE12B694548006E3CCD /* BrazeKit */,
 				C329EDE32B694548006E3CCD /* BrazeKitCompat */,
 				C329EDE52B694548006E3CCD /* BrazeLocation */,
+				C3227A3E2B733974007355EE /* BrazeUI */,
 			);
 			productName = Torchie;
 			productReference = C329EDCF2B694468006E3CCD /* Torchie.app */;
@@ -388,6 +399,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C3227A3E2B733974007355EE /* BrazeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C329EDE02B694548006E3CCD /* XCRemoteSwiftPackageReference "braze-swift-sdk" */;
+			productName = BrazeUI;
+		};
 		C329EDE12B694548006E3CCD /* BrazeKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C329EDE02B694548006E3CCD /* XCRemoteSwiftPackageReference "braze-swift-sdk" */;

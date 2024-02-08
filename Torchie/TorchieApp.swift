@@ -6,6 +6,7 @@
 //
 
 import BrazeKit
+import BrazeUI
 import SwiftUI
 import UserNotifications
 
@@ -29,6 +30,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
             apiKey: "73c9f921-d20f-4e7d-9253-e56c923ae69a",
             endpoint: "sondheim.braze.com"
         )
+        
+        configuration.triggerMinimumTimeInterval = 5
         let braze = Braze(configuration: configuration)
         
         //Stores the Braze instance in the static property AppDelegate.braze for future reference.
@@ -50,6 +53,11 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
          center.requestAuthorization(options: [.badge, .sound, .alert]) { granted, error in
            print("Notification authorization, granted: \(granted), error: \(String(describing: error))")
          }
+        
+    
+        //Initialize a BrazeInAppMessageUI object and set it on the Braze instance’s inAppMessagePresenter.
+        let inAppMessageUI = BrazeInAppMessageUI()
+        braze.inAppMessagePresenter = inAppMessageUI
        
         //Returns true to indicate that the app has finished launching successfully.
         return true
@@ -110,6 +118,9 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
       }
     }
 }
+
+
+
 
 //The @main attribute is an entry point for the application, indicating that this structure is the application itself.
 @main
