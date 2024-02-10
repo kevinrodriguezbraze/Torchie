@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C307C2E12B768C7600831D42 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307C2E02B768C7600831D42 /* UserView.swift */; };
+		C307C2E32B768CDE00831D42 /* ContentCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307C2E22B768CDE00831D42 /* ContentCardsView.swift */; };
+		C307C2E52B768CFD00831D42 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307C2E42B768CFD00831D42 /* SettingsView.swift */; };
 		C3227A3F2B733974007355EE /* BrazeUI in Frameworks */ = {isa = PBXBuildFile; productRef = C3227A3E2B733974007355EE /* BrazeUI */; };
 		C329EDD32B694468006E3CCD /* TorchieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C329EDD22B694468006E3CCD /* TorchieApp.swift */; };
 		C329EDD52B694468006E3CCD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C329EDD42B694468006E3CCD /* ContentView.swift */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C307C2E02B768C7600831D42 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		C307C2E22B768CDE00831D42 /* ContentCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardsView.swift; sourceTree = "<group>"; };
+		C307C2E42B768CFD00831D42 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C329EDCF2B694468006E3CCD /* Torchie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Torchie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C329EDD22B694468006E3CCD /* TorchieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorchieApp.swift; sourceTree = "<group>"; };
 		C329EDD42B694468006E3CCD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,6 +48,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C307C2DF2B768C5E00831D42 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C329EDD42B694468006E3CCD /* ContentView.swift */,
+				C307C2E02B768C7600831D42 /* UserView.swift */,
+				C307C2E22B768CDE00831D42 /* ContentCardsView.swift */,
+				C307C2E42B768CFD00831D42 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C3227A3D2B733974007355EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -53,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				C329EDD12B694468006E3CCD /* Torchie */,
+				C329EDD62B69446A006E3CCD /* Assets.xcassets */,
 				C329EDD02B694468006E3CCD /* Products */,
 				C3227A3D2B733974007355EE /* Frameworks */,
 			);
@@ -72,8 +90,7 @@
 				C329EDE82B69F3AF006E3CCD /* Torchie.entitlements */,
 				C329EDE72B694916006E3CCD /* Info.plist */,
 				C329EDD22B694468006E3CCD /* TorchieApp.swift */,
-				C329EDD42B694468006E3CCD /* ContentView.swift */,
-				C329EDD62B69446A006E3CCD /* Assets.xcassets */,
+				C307C2DF2B768C5E00831D42 /* Views */,
 				C329EDD82B69446A006E3CCD /* Preview Content */,
 			);
 			path = Torchie;
@@ -166,7 +183,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C307C2E52B768CFD00831D42 /* SettingsView.swift in Sources */,
+				C307C2E32B768CDE00831D42 /* ContentCardsView.swift in Sources */,
 				C329EDD52B694468006E3CCD /* ContentView.swift in Sources */,
+				C307C2E12B768C7600831D42 /* UserView.swift in Sources */,
 				C329EDD32B694468006E3CCD /* TorchieApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

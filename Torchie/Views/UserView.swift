@@ -1,15 +1,15 @@
 //
-//  ContentView.swift
+//  UserView.swift
 //  Torchie
 //
-//  Created by Kevin Rodriguez on 1/30/24.
+//  Created by Kevin Rodriguez on 2/9/24.
 //
 
 import SwiftUI
 import UIKit
 
-struct ContentView: View {
-
+struct UserView: View {
+   
     //VARIABLES
     
     @State private var externalID = ""
@@ -189,11 +189,8 @@ struct ContentView: View {
         }
         showAlert = true
     }
-    
-
-    
 }
 
 #Preview {
-    ContentView()
+    UserView()
 }
